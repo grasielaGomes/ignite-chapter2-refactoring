@@ -1,7 +1,7 @@
 import {
   useEffect,
-  useRef,
   useState,
+  useRef,
   useCallback,
 } from 'react';
 
@@ -9,8 +9,13 @@ import { useField } from '@unform/core';
 
 import { Container } from './styles';
 
-const Input = ({ name,  ...rest }) => {
-  const inputRef = useRef(null);
+interface InputProps {
+  name: string,
+  placeholder: string
+}
+
+const Input = ({ name,  ...rest }: InputProps) => {
+  const inputRef = useRef<HTMLInputElement>(null);
 
   const [isFocused, setIsFocused] = useState(false);
   const [isFilled, setIsFilled] = useState(false);
